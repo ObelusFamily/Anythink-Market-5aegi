@@ -39,12 +39,16 @@ class Item extends React.Component {
     }
 
     const markup = {
-      __html: marked(this.props.item.description, { sanitize: true }),
+      __html: marked(this.props.item.description, {
+        sanitize: true,
+      }),
     };
     const canModify =
       this.props.currentUser &&
       this.props.currentUser.username === this.props.item.seller.username;
-    const image  = this.props.item.image ? this.props.item.image : "../placeholder.png";
+    const image = this.props.item.image
+      ? this.props.item.image
+      : "../placeholder.png";
     return (
       <div className="container page" id="item-container">
         <div className="text-dark">
@@ -54,7 +58,11 @@ class Item extends React.Component {
                 src={image}
                 alt={this.props.item.title}
                 className="item-img"
-                style={{ height: "500px", width: "100%", borderRadius: "6px" }}
+                style={{
+                  height: "500px",
+                  width: "100%",
+                  borderRadius: "6px",
+                }}
               />
             </div>
 
